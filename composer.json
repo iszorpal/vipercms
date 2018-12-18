@@ -25,7 +25,8 @@
         "symfony/routing": "^4.2",
         "symfony/templating": "^4.2",
         "symfony/translation": "^4.2",
-        "symfony/validator": "^4.2"
+        "symfony/validator": "^4.2",
+        "symfony/yaml": "^4.2"
     },
     "config": {
         "optimize-autoloader": true,
