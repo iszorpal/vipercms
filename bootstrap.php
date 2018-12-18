@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Viper;
 
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\Route;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Routing\Loader\YamlFileLoader;
 use Symfony\Component\Templating\PhpEngine;
 use Symfony\Component\Templating\TemplateNameParser;
 use Symfony\Component\Templating\Loader\FilesystemLoader;
@@ -48,3 +48,7 @@ function app(string $service)
 $filesystemLoader = new FilesystemLoader(__DIR__ . '/views/%name%');
 $templating = new PhpEngine(new TemplateNameParser(), $filesystemLoader);
 
+// Get the routes.
+$fileLocator = new FileLocator(array('/config/' . __DIR__));
+$loader = new YamlFileLoader($fileLocator);
+$routes = $loader->load('routes.yaml');
